@@ -1,0 +1,121 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f8fafc;
+  background: #0f2a1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 800px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 28px;
+  background: radial-gradient(circle at top, #296144, #0f2a1f 68%);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1050px;
+  margin: 0 auto 34px;
+}
+
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 8px 0 0;
+  color: #d1fae5;
+}
+
+header button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #173424;
+  cursor: pointer;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 42px;
+  align-items: start;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.pile,
+.hand-area {
+  min-height: 210px;
+  padding: 18px;
+  border: 2px dashed rgb(255 255 255 / 0.3);
+  border-radius: 14px;
+  background: rgb(0 0 0 / 0.13);
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-size: 1rem;
+}
+
+.hand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 94px;
+  height: 136px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 7px 16px rgb(0 0 0 / 0.28);
+}
+
+.hand .card {
+  cursor: pointer;
+  transition: transform 150ms ease;
+}
+
+.hand .card:hover {
+  transform: translateY(-10px);
+}
+
+.card--red {
+  color: #b91c1c;
+}
+
+.card--black {
+  color: #111827;
+}
+
+.rank {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.suit {
+  font-size: 3.4rem;
+}
