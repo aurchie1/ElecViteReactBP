@@ -1,0 +1,64 @@
+# Go to your Desktop
+cd $HOME\Desktop
+
+# Create an Electron Forge project that already uses Vite
+npx create-electron-app@latest cardforge --template=vite
+
+# Enter the new project folder
+cd cardforge
+
+# Install React, ReactDOM, and the Vite React plugin
+npm install react react-dom
+npm install --save-dev @vitejs/plugin-react@4
+
+# Create a small React app folder inside the renderer source folder
+New-Item -ItemType Directory -Force -Path "src\renderer\src" | Out-Null
+
+# Start the desktop app
+npm start
+
+
+@'
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlankSlate</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/react/main.jsx"></script>
+  </body>
+</html>
+'@ | Set-Content -Encoding utf8 .\src\index.html
+
+@'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./styles.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+'@ | Set-Content -Encoding utf8 .\src\react\main.jsx
+
+@'
+import { useState } from "react";
+
+
+'@ | Set-Content -Encoding utf8 .\src\react\App.jsx
+
+@'
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f8fafc;
+  background: #050b09;
+}
+
+'@ | Set-Content -Encoding utf8 .\src\react\styles.css
+
+npm start
